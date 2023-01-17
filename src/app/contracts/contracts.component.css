@@ -1,0 +1,14 @@
+table{
+    width: 80%;
+}
+.search{
+    margin-left: 10%;
+}
+.search-btn{
+    padding: 5px 15px;
+    background-color: #3700ff;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    outline: none;
+}
