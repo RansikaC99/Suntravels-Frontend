@@ -4,8 +4,7 @@ table{
     width: 80%;
 }
 .back{
-    margin: 10px;
-    margin-top: 40px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.324), rgba(0, 0, 0, 0.279)),url("../img/room2.jpg");
     display: flex;
 }
 .search-container{
@@ -16,12 +15,12 @@ table{
 }
 .form{
     flex-grow: 1;
-    background-color: rgb(223, 223, 223);
-    border-radius: 10px;
+    background-color: rgba(223, 223, 223, 0.646);
     padding: 20px;
 }
 .search{
     margin: auto;
+    margin-top: 30px;
 }
 .search-btn{
     padding: 5px 15px;
@@ -52,6 +51,7 @@ table{
     font-weight: 700; 
     margin: auto;
     padding: 10px;
+    color: rgb(57, 57, 57);
 }
 .hotelName{
     min-width: 300px;
