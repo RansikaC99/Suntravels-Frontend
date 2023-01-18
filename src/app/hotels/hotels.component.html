@@ -1,0 +1,56 @@
+<div class="back">
+    <div class="search-container">
+      <div class="search">
+        <form (submit)="$event.preventDefault()">
+            <mat-form-field appearance="fill" style="min-width: 250px;">
+              <mat-label>Enter Hotel name</mat-label>
+              <input matInput #first>
+            </mat-form-field>
+            <button class="search-btn" mat-raised-button color="primary">Search</button>
+          </form>
+      </div>
+      <div>
+        
+      </div>
+      <div class="results">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>Grand Paradise</mat-card-title>
+                <mat-card-subtitle>Ja-ela</mat-card-subtitle>
+              </mat-card-header>
+              
+              <mat-card-content>
+                <mat-grid-list cols="2" rowHeight="3:1">          
+                      <mat-grid-tile><p>Phone: </p></mat-grid-tile>
+                      <mat-grid-tile><p>0709889012</p></mat-grid-tile>
+                </mat-grid-list>
+              </mat-card-content>
+              <mat-card-actions>
+                  <p style="margin: auto; color: rgb(188, 0, 0); cursor: pointer;">Delete</p>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+    
+    </div>
+  
+    <div class="form">
+      <div class="addcontract">
+        <h1 class="addcontract_head">Add Hotel Form</h1>
+        <mat-form-field class="hotelName" appearance="fill">
+          <mat-label>Enter Hotel name</mat-label>
+          <input matInput #hotelName>
+        </mat-form-field>
+        <mat-form-field class="location" appearance="fill">
+          <mat-label>Enter Location</mat-label>
+          <input matInput #location>
+        </mat-form-field>
+        <mat-form-field class="number" appearance="fill">
+          <mat-label>Enter Phone number</mat-label>
+          <input matInput #number>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="saveroom-btn">Save Hotel</button>
+      </div>
+    </div>
+        
+  </div>
+  

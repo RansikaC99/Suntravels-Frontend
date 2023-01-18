@@ -20,13 +20,15 @@ import { ContractsComponent } from './contracts/contracts.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HotelsComponent } from './hotels/hotels.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ContractsComponent
+    ContractsComponent,
+    HotelsComponent
   ],
   imports: [
     BrowserModule,

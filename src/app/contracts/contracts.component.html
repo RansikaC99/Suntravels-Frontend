@@ -1,43 +1,70 @@
 <div class="back">
+  <div class="search-container">
     <div class="search">
-        <form (submit)="$event.preventDefault()">
-            <mat-form-field appearance="fill" style="min-width: 250px;">
-              <mat-label>Enter Hotel name</mat-label>
-              <input matInput #first>
-            </mat-form-field>
-            <button class="search-btn" mat-raised-button>Search</button>
-          </form>
+      <form (submit)="$event.preventDefault()">
+          <mat-form-field appearance="fill" style="min-width: 250px;">
+            <mat-label>Enter Hotel name</mat-label>
+            <input matInput #first>
+          </mat-form-field>
+          <button class="search-btn" mat-raised-button color="primary">Search</button>
+        </form>
     </div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div>
+      
+    </div>
+    <div class="results">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Grand Paradise</mat-card-title>
+              <mat-card-subtitle>Ja-ela</mat-card-subtitle>
+            </mat-card-header>
+            
+            <mat-card-content>
+              <mat-grid-list cols="2" rowHeight="3:1">
+                <mat-grid-tile><p>Start date: </p></mat-grid-tile>
+                    <mat-grid-tile><p>01-01-2023</p></mat-grid-tile>
+        
+                    <mat-grid-tile><p>End date: </p></mat-grid-tile>
+                    <mat-grid-tile><p>01-12-2023</p></mat-grid-tile>
+        
+                    <mat-grid-tile><p>Phone: </p></mat-grid-tile>
+                    <mat-grid-tile><p>0709889012</p></mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <p style="margin: auto; color: rgb(188, 0, 0); cursor: pointer;">Delete</p>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  
+  </div>
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
+  <div class="form">
+    <div class="addcontract">
+      <h1 class="addcontract_head">Add contract Form</h1>
+      <mat-form-field class="hotelName" appearance="fill">
+        <mat-label>Select hotel</mat-label>
+        <mat-select>
+          <mat-option value="option1">Savieira</mat-option>
+          <mat-option value="option2" >Shangrila</mat-option>
+          <mat-option value="option3">Hilton</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="startDate" appearance="fill">
+        <mat-label>Enter start date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="endDate" appearance="fill">
+        <mat-label>Enter end date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="addroom-btn"><fa-icon [icon]="faplus" class="plus-icon"></fa-icon>Add rooms</button>
+      <button mat-raised-button color="primary" class="saveroom-btn">Save Contract</button>
+    </div>
+  </div>
       
-        <!-- Position Column -->
-        <ng-container matColumnDef="hotel name">
-          <th mat-header-cell *matHeaderCellDef> Hotel Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.hotelName}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="start date">
-          <th mat-header-cell *matHeaderCellDef> Start date </th>
-          <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="end date">
-          <th mat-header-cell *matHeaderCellDef> End date </th>
-          <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="view">
-          <th mat-header-cell *matHeaderCellDef> View </th>
-          <td mat-cell *matCellDef="let element"> {{element.view}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>      
 </div>

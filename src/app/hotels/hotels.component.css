@@ -5,6 +5,7 @@ table{
 }
 .back{
     margin: 10px;
+    margin-top: 40px;
     display: flex;
 }
 .search-container{
@@ -57,12 +58,12 @@ table{
     margin: auto;
     padding: 10px;
 }
-.startDate{
+.number{
     min-width: 300px;
     margin: auto;
     padding: 10px;
 }
-.endDate{
+.location{
     min-width: 300px;
     margin: auto;
     padding: 10px;

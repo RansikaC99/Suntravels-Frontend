@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export interface PeriodicElement {
   hotelName: string;
@@ -25,4 +26,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ContractsComponent {
   displayedColumns: string[] = ['hotel name', 'start date', 'end date', 'view'];
   dataSource = ELEMENT_DATA;
+  faplus = faPlus;
 }
