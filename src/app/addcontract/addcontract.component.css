@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.addcontract-container{
+    padding: 40px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.324), rgba(0, 0, 0, 0.279)),url("../img/room2.jpg");
+}
+.addcontract{
+    margin: auto;
+    max-width: 400px;
+}
+.addcontract form{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: auto;
+    background-color: rgba(185, 185, 185, 0.669);
+    border-radius: 20px;
+}
+.addcontract_head{
+    margin: auto;
+    margin-bottom: 30px;
+    font-family: Montserrat;
+    color: rgb(62, 62, 62);
+}
+.save-btn{
+    font-family: Montserrat;
+}

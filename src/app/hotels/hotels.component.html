@@ -13,42 +13,41 @@
         
       </div>
       <div class="results">
-            <mat-card class="example-card">
+            <mat-card class="example-card" *ngFor="let hotel of hotels">
               <mat-card-header>
-                <mat-card-title>Grand Paradise</mat-card-title>
-                <mat-card-subtitle>Ja-ela</mat-card-subtitle>
+                <mat-card-title>{{hotel.name}}</mat-card-title>
+                <mat-card-subtitle>{{hotel.location}}</mat-card-subtitle>
               </mat-card-header>
               
               <mat-card-content>
                 <mat-grid-list cols="2" rowHeight="3:1">          
                       <mat-grid-tile><p>Phone: </p></mat-grid-tile>
-                      <mat-grid-tile><p>0709889012</p></mat-grid-tile>
+                      <mat-grid-tile><p>{{hotel.contactNumber}}</p></mat-grid-tile>
                 </mat-grid-list>
               </mat-card-content>
-              <mat-card-actions>
-                  <p style="margin: auto; color: rgb(188, 0, 0); cursor: pointer;">Delete</p>
-              </mat-card-actions>
             </mat-card>
       </div>
     
     </div>
   
-    <div class="form">
+    <div class="form-field">
       <div class="addcontract">
+        <form #addForm="ngForm" (ngSubmit)="onAddHotel(addForm)">
         <h1 class="addcontract_head">Add Hotel Form</h1>
-        <mat-form-field class="hotelName" appearance="fill">
+        <mat-form-field class="hotelName" appearance="fill"> 
           <mat-label>Enter Hotel name</mat-label>
-          <input matInput #hotelName>
+          <input matInput #hotelName ngModel name="name" >
         </mat-form-field>
         <mat-form-field class="location" appearance="fill">
           <mat-label>Enter Location</mat-label>
-          <input matInput #location>
+          <input matInput #location ngModel name="location" >
         </mat-form-field>
         <mat-form-field class="number" appearance="fill">
           <mat-label>Enter Phone number</mat-label>
-          <input matInput #number>
+          <input matInput #number ngModel name="contactNumber" pattern="^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\d)\d{6}$" >
         </mat-form-field>
-        <button mat-raised-button color="primary" class="saveroom-btn">Save Hotel</button>
+        <button type="submit" mat-raised-button color="primary" class="saveroom-btn" (click)="saveHotel()" >Save Hotel</button>
+      </form>
       </div>
     </div>
         

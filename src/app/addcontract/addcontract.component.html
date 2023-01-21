@@ -1,0 +1,27 @@
+<div class="addcontract-container">
+  <div class="addcontract">
+    <form #addContractForm="ngForm" (ngSubmit)="addContract(addContractForm)">
+
+      <h1 class="addcontract_head">Add contract Form</h1>
+      <mat-form-field class="hotelName" appearance="fill">
+        <mat-label>Select hotel</mat-label>
+        <mat-select ngModel name="hotel">
+          <mat-option *ngFor="let hotel of hotels" value={{hotel.id}}>{{hotel.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="startDate" appearance="fill">
+        <mat-label>Enter start date</mat-label>
+        <input matInput [matDatepicker]="picker1" ngModel name="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="endDate" appearance="fill">
+        <mat-label>Enter end date</mat-label>
+        <input matInput [matDatepicker]="picker2" ngModel name="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" class="save-btn">Add Contract</button>
+    </form>
+  </div>
+</div>

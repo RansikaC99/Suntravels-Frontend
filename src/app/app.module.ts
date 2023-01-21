@@ -1,3 +1,4 @@
+import { HotelService } from './services/hotel.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,8 +20,14 @@ import { MatCardModule } from '@angular/material/card';
 import { ContractsComponent } from './contracts/contracts.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HotelsComponent } from './hotels/hotels.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContractService } from './services/contract.service';
+import { AddcontractComponent } from './addcontract/addcontract.component';
+import { AddroomComponent } from './addroom/addroom.component';
+import { RoomService } from './services/room.service';
 
 @NgModule({
   declarations: [
@@ -28,11 +35,14 @@ import { HotelsComponent } from './hotels/hotels.component';
     NavbarComponent,
     HomeComponent,
     ContractsComponent,
-    HotelsComponent
+    HotelsComponent,
+    AddcontractComponent,
+    AddroomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -47,8 +57,9 @@ import { HotelsComponent } from './hotels/hotels.component';
     MatTableModule,
     MatButtonModule,
     FontAwesomeModule,
+    MatDialogModule
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, HotelService, ContractService, RoomService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

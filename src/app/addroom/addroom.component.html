@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="addrooms">
+    <form #addForm="ngForm" (ngSubmit)="addRoom(addForm)">
+
+      <div class="roomform">
+        <div style="display: none;"><input matInput #location type="number" ngModel name="contract"></div>
+        <mat-form-field class="roomType" appearance="fill">
+          <mat-label>Enter Room type</mat-label>
+          <input matInput #location ngModel name="roomType">
+        </mat-form-field>
+        <mat-form-field class="price" appearance="fill">
+          <mat-label>Enter Price</mat-label>
+          <input matInput #location type="number" min="0" ngModel name="price">
+        </mat-form-field>
+        <mat-form-field class="noOfRooms" appearance="fill">
+          <mat-label>Enter No. of Rooms</mat-label>
+          <input matInput #location type="number" min="0" ngModel name="noOfRooms">
+        </mat-form-field>
+        <mat-form-field class="availableRooms" appearance="fill">
+          <mat-label>Enter Available Rooms</mat-label>
+          <input matInput #location type="number" min="0" ngModel name="availableRooms">
+        </mat-form-field>
+        <mat-form-field class="maxAdults" appearance="fill">
+          <mat-label>Enter Max Adults</mat-label>
+          <input matInput #location type="number" min="0" ngModel name="maxAdults">
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" type="submit" class="saveroom-btn">Add room</button>
+      </div>
+    </form>
+    <button mat-raised-button style="margin-top: 10px;" color="primary" class="saveroom-btn" (click)="addRoomsToContract()">Save Contract</button>
+  </div>
+  <div class="rooms">
+    <mat-card class="example-card" *ngFor="let room of rooms; let i=index">
+      <mat-card-header>
+        <mat-card-title>{{room.roomType}}</mat-card-title>
+        <mat-card-subtitle>Rs.{{room.price}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="3:1">
+          <mat-grid-tile>
+            <p>Max adults </p>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <p>{{room.maxAdults}}</p>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <p>No of Rooms </p>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <p>{{room.noOfRooms}}</p>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <p>Available </p>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <p>{{room.availableRooms}}</p>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <p style="margin: auto; color: rgb(188, 0, 0); cursor: pointer;" (click)="deleteRoom(i)">Delete</p>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

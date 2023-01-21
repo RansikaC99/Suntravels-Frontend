@@ -41,132 +41,22 @@
       </form>
 </div>
 <div class="results">
-  <mat-card class="example-card">
+  <mat-card class="example-card" *ngFor="let room of rooms">
     <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
+      <mat-card-title>{{room.contract.hotel.name}}</mat-card-title>
+      <mat-card-subtitle>{{room.contract.hotel.location}}</mat-card-subtitle>
     </mat-card-header>
     
     <mat-card-content style="margin-top: 10px;">
         <mat-grid-list cols="2" rowHeight="3:1">
             <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
+            <mat-grid-tile><p>{{room.roomType}}</p></mat-grid-tile>
 
             <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
+            <mat-grid-tile><p>{{room.maxAdults}}</p></mat-grid-tile>
 
             <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
-        </mat-grid-list>
-    </mat-card-content>
-    <mat-card-actions>
-        <p style="margin: auto; color: rgb(106, 177, 0);">Available </p>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content style="margin-top: 10px;">
-        <mat-grid-list cols="2" rowHeight="3:1">
-            <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
-        </mat-grid-list>
-    </mat-card-content>
-    <mat-card-actions>
-        <p style="margin: auto; color: rgb(106, 177, 0);">Available </p>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content style="margin-top: 10px;">
-        <mat-grid-list cols="2" rowHeight="3:1">
-            <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
-        </mat-grid-list>
-    </mat-card-content>
-    <mat-card-actions>
-        <p style="margin: auto; color: rgb(106, 177, 0);">Available </p>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content style="margin-top: 10px;">
-        <mat-grid-list cols="2" rowHeight="3:1">
-            <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
-        </mat-grid-list>
-    </mat-card-content>
-    <mat-card-actions>
-        <p style="margin: auto; color: rgb(106, 177, 0);">Available </p>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content style="margin-top: 10px;">
-        <mat-grid-list cols="2" rowHeight="3:1">
-            <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
-        </mat-grid-list>
-    </mat-card-content>
-    <mat-card-actions>
-        <p style="margin: auto; color: rgb(106, 177, 0);">Available </p>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Grand Paradise</mat-card-title>
-      <mat-card-subtitle>Ja-ela</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content style="margin-top: 10px;">
-        <mat-grid-list cols="2" rowHeight="3:1">
-            <mat-grid-tile><p>Room type: </p></mat-grid-tile>
-            <mat-grid-tile><p>Sea view </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Max adults: </p></mat-grid-tile>
-            <mat-grid-tile><p>5 </p></mat-grid-tile>
-
-            <mat-grid-tile><p>Price: </p></mat-grid-tile>
-            <mat-grid-tile><p>15000 </p></mat-grid-tile>
+            <mat-grid-tile><p>{{room.price}}</p></mat-grid-tile>
         </mat-grid-list>
     </mat-card-content>
     <mat-card-actions>
