@@ -32,6 +32,7 @@
 }
 .example-card {
     max-width: 240px;
+    max-height: 250px;
     margin: 20px;
 }
 

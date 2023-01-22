@@ -21,4 +21,7 @@ export class ContractService {
   public deleteContract(id: number): Observable<void> {
     return this.http.delete<void>(environment.apiBaseUrl + '/contracts/'+`${id}`)
   }
+  public searchContract(hotelName: string): Observable<Contract[]> {
+    return this.http.get<Contract[]>(environment.apiBaseUrl + '/contracts/' +`search?name=${hotelName}`)
+  }
 }

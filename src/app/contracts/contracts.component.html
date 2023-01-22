@@ -4,9 +4,9 @@
       <form (submit)="$event.preventDefault()">
           <mat-form-field appearance="fill" style="min-width: 250px;">
             <mat-label>Enter Hotel name</mat-label>
-            <input matInput #first>
+            <input matInput [(ngModel)]="hotelName" type="text" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
-          <button class="search-btn" mat-raised-button color="primary">Search</button>
+          <button class="search-btn" mat-raised-button color="primary" (click)="searchContract()">Search</button>
           <button class="search-btn" mat-raised-button color="primary" routerLink="/addcontract">Add contract</button>
         </form>
     </div>

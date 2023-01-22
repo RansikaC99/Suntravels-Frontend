@@ -22,4 +22,7 @@ export class HotelService {
   public getHotelById(id: number): Observable<Hotel>{
     return this.http.get<Hotel>(`${environment.apiBaseUrl}/hotels/${id}`)
   }
+  public searchHotel(hotelName: string): Observable<Hotel[]> {
+    return this.http.get<Hotel[]>(environment.apiBaseUrl + `/hotels/search/${hotelName}`)
+  }
 }

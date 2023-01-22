@@ -32,4 +32,17 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+  public searchRooms(){
+    this.roomService.searchRooms(5,8).subscribe(
+      {
+        next:(response: Room[]) => {
+          this.rooms = response;
+          console.log(response);
+        },
+        error:(error: HttpErrorResponse) => {
+          console.log(error);
+        }
+      }
+    );
+  }
 }

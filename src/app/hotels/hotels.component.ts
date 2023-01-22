@@ -13,6 +13,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class HotelsComponent implements OnInit {
   public hotels: Hotel[];
+  hotel_name: string;
 
   constructor(private hotelService: HotelService, private fb: FormBuilder) { }
 
@@ -60,6 +61,24 @@ export class HotelsComponent implements OnInit {
             'Something went wrong',
             'error'
           )
+        }
+      );
+    }
+  }
+
+  public searchHotel() {
+    if (this.hotel_name == undefined) {
+      this.getHotels();
+    }
+    else {
+      this.hotelService.searchHotel(this.hotel_name).subscribe(
+        {
+          next: (response: Hotel[]) => {
+            this.hotels = response;
+          },
+          error: (error: HttpErrorResponse) => {
+            console.log(error);
+          }
         }
       );
     }

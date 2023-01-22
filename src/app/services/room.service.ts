@@ -18,6 +18,6 @@ export class RoomService {
     return this.http.post<Room[]>(environment.apiBaseUrl + '/roomList', rooms)
   }
   public searchRooms(maxAdults: number ,availableRooms: number): Observable<Room[]> {
-    return this.http.get<Room[]>(environment.apiBaseUrl + '/rooms/' +"search?maxAdults="+{maxAdults}+"&availableRooms="+{availableRooms})
+    return this.http.get<Room[]>(environment.apiBaseUrl + '/rooms/' +`search?maxAdults=${maxAdults}&availableRooms=${availableRooms}`)
   }
 }
