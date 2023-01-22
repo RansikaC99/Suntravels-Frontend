@@ -5,7 +5,7 @@ body {
     overflow: hidden;
 }
 .search-container{
-    padding-top: 120px;
+    padding-top: 100px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.169), rgba(0, 0, 0, 0.169)),url("../img/back2.jpg");
     height: 300px;
     background-size: cover;
@@ -27,6 +27,8 @@ h2{
     border-radius: 10px;
     margin: auto;
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 .date{
     position: absolute;
@@ -54,11 +56,11 @@ h2{
     font-weight: 400;
 }
 .search-btn{
-    position: absolute;
-    right: 50px;
     border-radius: 20px;
+    margin: auto;
     color: rgb(255, 255, 255);
     font-family: Montserrat;
+    margin-bottom: 20px;
 }
 .search-btn:hover{
     background-color: #d900ff;

@@ -7,6 +7,7 @@ import { Contract } from '../Interface/contract';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Hotel } from '../Interface/hotel';
 import { MatInput } from '@angular/material/input';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contracts',
@@ -54,15 +55,27 @@ export class ContractsComponent implements OnInit {
     );
   }
   public deleteContract(id: number): void {
-    this.contractService.deleteContract(id).subscribe(
-      (response: void) => {
-        console.log(response);
-        this.getContracts();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "This will delete the contract from system",
+      icon: 'question',
+      confirmButtonColor: '#3085d6',
+      showCancelButton: true,
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.value) {
+        this.contractService.deleteContract(id).subscribe(
+          (response: void) => {
+            this.getContracts();
+          },
+          (error: HttpErrorResponse) => {
+            alert(error.message);
+          }
+        );
       }
-    );
+    });
+    
   }
 
   public searchContract() {
