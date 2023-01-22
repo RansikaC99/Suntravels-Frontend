@@ -2,7 +2,7 @@ import { Contract } from "./contract";
 
 export interface Room{
     id:number;
-    contract: Contract;
+    contract: any;
     roomType: string;
     price: number;
     noOfRooms: number;

@@ -1,30 +1,42 @@
 <div class="container">
   <div class="addrooms">
-    <form #addForm="ngForm" (ngSubmit)="addRoom(addForm)">
+    <form [formGroup]="roomForm">
 
       <div class="roomform">
         <div style="display: none;"><input matInput #location type="number" ngModel name="contract"></div>
         <mat-form-field class="roomType" appearance="fill">
           <mat-label>Enter Room type</mat-label>
-          <input required matInput #location ngModel name="roomType">
+          <input matInput formControlName="roomType">
+          <mat-error *ngIf="roomForm.get('roomType').hasError('required')">
+            Room type is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="price" appearance="fill">
           <mat-label>Enter Price</mat-label>
-          <input required matInput #location type="number" min="0" ngModel name="price">
+          <input matInput type="number" min="0" formControlName="price">
+          <mat-error *ngIf="roomForm.get('price').hasError('required')">
+            Price is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="noOfRooms" appearance="fill">
           <mat-label>Enter No. of Rooms</mat-label>
-          <input required matInput #location type="number" min="0" ngModel name="noOfRooms">
+          <input matInput type="number" min="0" formControlName="noOfRooms">
+          <mat-error *ngIf="roomForm.get('noOfRooms').hasError('required')">
+            No. of rooms is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="availableRooms" appearance="fill">
           <mat-label>Enter Available Rooms</mat-label>
-          <input required matInput #location type="number" min="0" ngModel name="availableRooms">
+          <input matInput type="number" min="0" formControlName="availableRooms">
+          <mat-error *ngIf="roomForm.get('availableRooms').hasError('required')">
+            Available rooms is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="maxAdults" appearance="fill">
           <mat-label>Enter Max Adults</mat-label>
-          <input required matInput #location type="number" min="0" ngModel name="maxAdults">
+          <input matInput type="number" min="0" formControlName="maxAdults">
         </mat-form-field>
-        <button mat-raised-button type="submit" color="primary" type="submit" class="saveroom-btn">Add room</button>
+        <button mat-raised-button type="submit" color="primary" type="submit" class="saveroom-btn" (click)="addRooms()">Add room</button>
       </div>
     </form>
     <button mat-raised-button style="margin-top: 10px;" color="primary" class="saveroom-btn" (click)="addRoomsToContract()">Save Contract</button>
