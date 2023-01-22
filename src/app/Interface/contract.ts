@@ -3,7 +3,7 @@ import { Room } from "./room";
 
 export interface Contract{
     id:number;
-    hotel: Hotel;
+    hotel: any;
     startDate: string;
     endDate: string;
 }

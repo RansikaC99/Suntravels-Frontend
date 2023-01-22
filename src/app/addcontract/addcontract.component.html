@@ -1,27 +1,35 @@
 <div class="addcontract-container">
   <div class="addcontract">
-    <form #addContractForm="ngForm" (ngSubmit)="addContract(addContractForm)">
-
-      <h1 class="addcontract_head">Add contract Form</h1>
+    <form [formGroup]="contractForm">
       <mat-form-field class="hotelName" appearance="fill">
         <mat-label>Select hotel</mat-label>
-        <mat-select ngModel name="hotel">
+        <mat-select formControlName="hotel">
           <mat-option *ngFor="let hotel of hotels" value={{hotel.id}}>{{hotel.name}}</mat-option>
         </mat-select>
+        <mat-error *ngIf="contractForm.get('hotel').hasError('required')">
+          Hotel is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="startDate" appearance="fill">
         <mat-label>Enter start date</mat-label>
-        <input matInput [matDatepicker]="picker1" ngModel name="startDate">
+        <input matInput [matDatepicker]="picker1" formControlName="startDate">
         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="contractForm.get('startDate').hasError('required')">
+          Start date is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="endDate" appearance="fill">
         <mat-label>Enter end date</mat-label>
-        <input matInput [matDatepicker]="picker2" ngModel name="endDate">
+        <input matInput [matDatepicker]="picker2" formControlName="endDate">
         <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="contractForm.get('endDate').hasError('required')">
+          End date is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" color="primary" class="save-btn">Add Contract</button>
+      <button mat-raised-button type="submit" color="primary" class="save-btn" (click)="addContract()">Save Contract</button>
+    
     </form>
   </div>
 </div>

@@ -18,18 +18,6 @@ export class ContractsComponent implements OnInit {
   public contracts: Contract[];
   public hotels: Hotel[];
 
-  room1: Room = {
-    roomType: "AC",
-    price: 25000,
-    noOfRooms: 7,
-    availableRooms: 6,
-    maxAdults: 5,
-    id: 1,
-    contract: undefined
-  }
-
-  public rooms: Room[]=[this.room1];
-
   constructor(private contractService: ContractService, private hotelService: HotelService) {}
 
   ngOnInit() {

@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Hotel } from '../Interface/hotel';
 import { HotelService } from '../services/hotel.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-hotels',
@@ -13,41 +14,55 @@ import { HotelService } from '../services/hotel.service';
 export class HotelsComponent implements OnInit {
   public hotels: Hotel[];
 
-  constructor(private hotelService: HotelService){}
+  constructor(private hotelService: HotelService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getHotels();
   }
+  hotelForm = this.fb.group({
+    name: ['', Validators.required],
+    location: ['', Validators.required],
+    contactNumber: ['', Validators.required]
+  });
+
   public getHotels(): void {
     this.hotelService.getHotels().subscribe(
       {
-        next:(response: Hotel[]) => {
+        next: (response: Hotel[]) => {
           this.hotels = response;
         },
-        error:(error: HttpErrorResponse) => {
+        error: (error: HttpErrorResponse) => {
           console.log(error);
         }
       }
     );
   }
-  public onAddHotel(addForm: NgForm): void{
-      this.hotelService.addHotel(addForm.value).subscribe(
+  public saveHotel(): void {
+    if (this.hotelForm.valid) {
+      // perform save operation
+      let { name, location, contactNumber } = this.hotelForm.value;
+      let hotel = { id: null, name, location, contactNumber };
+      console.log(hotel);
+
+      this.hotelService.addHotel(hotel).subscribe(
         (response: Hotel) => {
           console.log(response);
+          Swal.fire(
+            'Saved!',
+            'Hotel has been saved successfully.',
+            'success'
+          )
           this.getHotels();
         },
         (error: HttpErrorResponse) => {
-          alert(error.message);
+          Swal.fire(
+            'Oops!',
+            'Something went wrong',
+            'error'
+          )
         }
       );
     }
-
-    public saveHotel(){
-      Swal.fire(
-        'Saved!',
-        'Hotel has been saved successfully.',
-        'success'
-      )
-    }
-    
   }
+
+}
