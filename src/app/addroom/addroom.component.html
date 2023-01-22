@@ -6,23 +6,23 @@
         <div style="display: none;"><input matInput #location type="number" ngModel name="contract"></div>
         <mat-form-field class="roomType" appearance="fill">
           <mat-label>Enter Room type</mat-label>
-          <input matInput #location ngModel name="roomType">
+          <input required matInput #location ngModel name="roomType">
         </mat-form-field>
         <mat-form-field class="price" appearance="fill">
           <mat-label>Enter Price</mat-label>
-          <input matInput #location type="number" min="0" ngModel name="price">
+          <input required matInput #location type="number" min="0" ngModel name="price">
         </mat-form-field>
         <mat-form-field class="noOfRooms" appearance="fill">
           <mat-label>Enter No. of Rooms</mat-label>
-          <input matInput #location type="number" min="0" ngModel name="noOfRooms">
+          <input required matInput #location type="number" min="0" ngModel name="noOfRooms">
         </mat-form-field>
         <mat-form-field class="availableRooms" appearance="fill">
           <mat-label>Enter Available Rooms</mat-label>
-          <input matInput #location type="number" min="0" ngModel name="availableRooms">
+          <input required matInput #location type="number" min="0" ngModel name="availableRooms">
         </mat-form-field>
         <mat-form-field class="maxAdults" appearance="fill">
           <mat-label>Enter Max Adults</mat-label>
-          <input matInput #location type="number" min="0" ngModel name="maxAdults">
+          <input required matInput #location type="number" min="0" ngModel name="maxAdults">
         </mat-form-field>
         <button mat-raised-button type="submit" color="primary" type="submit" class="saveroom-btn">Add room</button>
       </div>
