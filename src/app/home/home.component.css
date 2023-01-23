@@ -5,11 +5,12 @@ body {
     overflow: hidden;
 }
 .search-container{
-    padding-top: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.169), rgba(0, 0, 0, 0.169)),url("../img/back2.jpg");
-    height: 300px;
     background-size: cover;
     margin: auto;
+    display: flex;
 }
 h2{
     font-family: Montserrat;
@@ -29,6 +30,15 @@ h2{
     padding-top: 20px;
     display: flex;
     flex-direction: column;
+    width: 50%;
+}
+.roomDetails{
+    width: 50%;
+    background-color: rgba(245, 245, 245, 0.719);
+    max-width: 400px;
+    border-radius: 10px;
+    margin-right: auto;
+    padding-top: 20px;
 }
 .date{
     position: absolute;
@@ -73,7 +83,7 @@ h2{
     grid-template-columns: auto auto auto auto;
 }
 .example-card {
-    max-width: 260px;
+    max-width: 300px;
     margin-top: 30px;
     margin-left: 20px;
 }

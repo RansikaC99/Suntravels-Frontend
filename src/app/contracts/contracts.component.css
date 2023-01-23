@@ -2,6 +2,7 @@
 
 .back{
     background-image: linear-gradient(rgba(0, 0, 0, 0.324), rgba(0, 0, 0, 0.279)),url("../img/room2.jpg");
+    background-size: cover;
     display: flex;
 }
 .search-container{

@@ -1,65 +1,71 @@
 <div class="back">
-    <div class="search-container">
-      <div class="search">
-        <form (submit)="$event.preventDefault()">
-            <mat-form-field appearance="fill" style="min-width: 250px;">
-              <mat-label>Enter Hotel name</mat-label>
-              <input matInput #first [(ngModel)]="hotel_name" type="text" [ngModelOptions]="{standalone: true}">
-            </mat-form-field>
-            <button class="search-btn" mat-raised-button color="primary" (click)="searchHotel()">Search</button>
-          </form>
-      </div>
-      <div>
-        
-      </div>
-      <div class="results">
-            <mat-card class="example-card" *ngFor="let hotel of hotels">
-              <mat-card-header>
-                <mat-card-title>{{hotel.name}}</mat-card-title>
-                <mat-card-subtitle>{{hotel.location}}</mat-card-subtitle>
-              </mat-card-header>
-              
-              <mat-card-content>
-                <mat-grid-list cols="2" rowHeight="3:1">          
-                      <mat-grid-tile><p>Phone: </p></mat-grid-tile>
-                      <mat-grid-tile><p>{{hotel.contactNumber}}</p></mat-grid-tile>
-                </mat-grid-list>
-              </mat-card-content>
-            </mat-card>
-      </div>
-    
+  <div class="search-container">
+    <div class="search">
+      <form (submit)="$event.preventDefault()">
+        <mat-form-field appearance="fill" style="min-width: 250px;">
+          <mat-label>Enter Hotel name</mat-label>
+          <input matInput #first [(ngModel)]="hotel_name" type="text" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <button class="search-btn" mat-raised-button color="primary" (click)="searchHotel()">Search</button>
+      </form>
     </div>
-  
-    <div class="form-field">
-      <div class="addcontract">
-        <form [formGroup]="hotelForm">
-          <h1 class="addcontract_head">Add Hotel Form</h1>
-          <mat-form-field class="hotelName" appearance="fill">
-            <mat-label>Enter Hotel name</mat-label>
-            <input required matInput formControlName="name" >
-            <mat-error *ngIf="hotelForm.get('name').hasError('required')">
-              Hotel name is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="location" appearance="fill">
-            <mat-label>Enter Location</mat-label>
-            <input required matInput formControlName="location" >
-            <mat-error *ngIf="hotelForm.get('location').hasError('required')">
-              Location is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="number" appearance="fill">
-            <mat-label>Enter Phone number</mat-label>
-            <input required matInput formControlName="contactNumber" pattern="^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\d)\d{6}$" >
-            <mat-error *ngIf="hotelForm.get('contactNumber').hasError('pattern')">
-              Phone number is <strong>invalid</strong>
-            </mat-error>
-          </mat-form-field>
-          <button type="submit" mat-raised-button color="primary" class="saveroom-btn" (click)="saveHotel()" >Save Hotel</button>
-        </form>
-        
-      </div>
+    <div>
+      <mat-spinner *ngIf="loading" style="margin: auto;"></mat-spinner>
+
     </div>
-        
+    <div class="results">
+      <mat-card class="example-card" *ngFor="let hotel of hotels">
+        <mat-card-header>
+          <mat-card-title>{{hotel.name}}</mat-card-title>
+          <mat-card-subtitle>{{hotel.location}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+              <p>Phone: </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <p>{{hotel.contactNumber}}</p>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
   </div>
-  
+
+  <div class="form-field">
+    <div class="addcontract">
+      <form [formGroup]="hotelForm">
+        <h1 class="addcontract_head">Add Hotel Form</h1>
+        <mat-form-field class="hotelName" appearance="fill">
+          <mat-label>Enter Hotel name</mat-label>
+          <input required matInput formControlName="name">
+          <mat-error *ngIf="hotelForm.get('name').hasError('required')">
+            Hotel name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="location" appearance="fill">
+          <mat-label>Enter Location</mat-label>
+          <input required matInput formControlName="location">
+          <mat-error *ngIf="hotelForm.get('location').hasError('required')">
+            Location is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="number" appearance="fill">
+          <mat-label>Enter Phone number</mat-label>
+          <input required matInput formControlName="contactNumber"
+            pattern="^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\d)\d{6}$">
+          <mat-error *ngIf="hotelForm.get('contactNumber').hasError('pattern')">
+            Phone number is <strong>invalid</strong>
+          </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" class="saveroom-btn" (click)="saveHotel()">Save
+          Hotel</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>

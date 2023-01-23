@@ -28,6 +28,8 @@ import { ContractService } from './services/contract.service';
 import { AddcontractComponent } from './addcontract/addcontract.component';
 import { AddroomComponent } from './addroom/addroom.component';
 import { RoomService } from './services/room.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { RoomService } from './services/room.service';
     MatTableModule,
     MatButtonModule,
     FontAwesomeModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, HotelService, ContractService, RoomService ],
   bootstrap: [AppComponent]

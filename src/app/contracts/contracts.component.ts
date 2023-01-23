@@ -21,6 +21,7 @@ export class ContractsComponent implements OnInit {
 
   public contracts: Contract[];
   public hotels: Hotel[];
+  public loading: boolean = false;
 
   constructor(private contractService: ContractService, private hotelService: HotelService) { }
 
@@ -43,10 +44,12 @@ export class ContractsComponent implements OnInit {
   }
 
   public getHotels(): void {
+    this.loading = true;
     this.hotelService.getHotels().subscribe(
       {
         next: (response: Hotel[]) => {
           this.hotels = response;
+          this.loading = false;
         },
         error: (error: HttpErrorResponse) => {
           console.log(error);
@@ -79,6 +82,7 @@ export class ContractsComponent implements OnInit {
   }
 
   public searchContract() {
+    this.loading = true;
     if (this.hotelName == undefined) {
       this.getContracts();
     }
@@ -87,6 +91,7 @@ export class ContractsComponent implements OnInit {
         {
           next: (response: Contract[]) => {
             this.contracts = response;
+            this.loading = false;
           },
           error: (error: HttpErrorResponse) => {
             console.log(error);

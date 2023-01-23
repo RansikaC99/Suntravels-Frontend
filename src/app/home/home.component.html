@@ -21,30 +21,41 @@
       <mat-grid-tile>
         <mat-form-field class="nights">
           <mat-label>No. of adults</mat-label>
-          <input matInput type="number" value="1" min="1" max="7">
+          <input matInput type="number" value="1" min="1" max="1000" [(ngModel)]="noAdults" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
-        <button mat-raised-button color="primary" class="addroom-btn">Add room details</button>
+        <button mat-raised-button color="primary" class="addroom-btn" (click)="addRoomDetails()">Add room details</button>
       </mat-grid-tile>
     </mat-grid-list>
     <button mat-raised-button color="primary" class="search-btn" (click)="searchRooms()">Search</button>
 
+  </form>
 
-
-    <!-- <mat-form-field class="adults">
-            <mat-label>No. of Adults</mat-label>
-            <input matInput type="number" value="1">
-          </mat-form-field>
-
-        <mat-form-field class="rooms">
-            <mat-label>No. of rooms</mat-label>
-            <input matInput type="number" value="1">
-          </mat-form-field> -->
-
+  <form class="roomDetails" style="display: flex;flex-direction: column;">
+    <h2 style="margin: auto;">Room details</h2>
+    <div style="display: flex;flex-direction: column; overflow: auto; height: 300px;padding: 10px;margin: 20px;">
+      <mat-card class="example-card" *ngFor="let adult of adultList; let i=index">    
+        <mat-card-content>
+          <mat-grid-list cols="3" rowHeight="3:1">
+            <mat-grid-tile>
+              <p>1 room with </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <p>{{adult}} adults</p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <button mat-raised-button (click)="deleteAdult(i)"><mat-icon style="color: red;">delete</mat-icon></button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
   </form>
 </div>
+<mat-spinner *ngIf="loading" style="margin: auto;"></mat-spinner>
+
 <div class="results">
   <mat-card class="example-card" *ngFor="let room of rooms">
     <mat-card-header>

@@ -14,6 +14,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class HotelsComponent implements OnInit {
   public hotels: Hotel[];
   hotel_name: string;
+  public loading: boolean = false;
 
   constructor(private hotelService: HotelService, private fb: FormBuilder) { }
 
@@ -27,10 +28,12 @@ export class HotelsComponent implements OnInit {
   });
 
   public getHotels(): void {
+    this.loading = true;
     this.hotelService.getHotels().subscribe(
       {
         next: (response: Hotel[]) => {
           this.hotels = response;
+          this.loading = false;
         },
         error: (error: HttpErrorResponse) => {
           console.log(error);
@@ -43,7 +46,6 @@ export class HotelsComponent implements OnInit {
       // perform save operation
       let { name, location, contactNumber } = this.hotelForm.value;
       let hotel = { id: null, name, location, contactNumber };
-      console.log(hotel);
 
       this.hotelService.addHotel(hotel).subscribe(
         (response: Hotel) => {
@@ -67,6 +69,7 @@ export class HotelsComponent implements OnInit {
   }
 
   public searchHotel() {
+    this.loading = true;
     if (this.hotel_name == undefined || this.hotel_name == '') {
       this.getHotels();
     }
@@ -75,6 +78,7 @@ export class HotelsComponent implements OnInit {
         {
           next: (response: Hotel[]) => {
             this.hotels = response;
+            this.loading = false;
           },
           error: (error: HttpErrorResponse) => {
             console.log(error);
