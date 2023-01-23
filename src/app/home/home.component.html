@@ -43,7 +43,7 @@
         <mat-card-content>
           <mat-grid-list cols="3" rowHeight="3:1">
             <mat-grid-tile>
-              <p>{{item.rooms}} rooms with </p>
+              <p>{{item.rooms}} rooms </p>
             </mat-grid-tile>
             <mat-grid-tile>
               <p>{{item.adults}} adults</p>
@@ -87,7 +87,7 @@
           <p>Price: </p>
         </mat-grid-tile>
         <mat-grid-tile>
-          <p>{{room.price*(room.contract.hotel.markup/100)*noNights*noAdults | currency:'USD'}}</p>
+          <p>{{room.price | currency:'USD'}}</p>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>

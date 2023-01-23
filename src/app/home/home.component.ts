@@ -63,19 +63,30 @@ export class HomeComponent implements OnInit {
   }
 
   public searchRooms() {
-    this.loading = true;
+    if(this.adultList.length !==0){
+      this.loading = true;
+      this.rooms.splice(0);
+      this.adultList.forEach( (element) => {
+        this.roomService.searchRooms(moment(this.checkin_date).format('yyyy-MM-DD'), element.adults).subscribe(
+          {
+            next: (response: Room[]) => {
+              response.forEach( (room) => {
+                room.price=room.price*element.adults*room.contract.hotel.markup*this.noNights;
+                this.rooms.push(room);
+            });
+              this.loading = false;
+            },
+            error: (error: HttpErrorResponse) => {
+              console.log(error);
+            }
+          }
+        );
+      });
+    }
+    else{
+      this.getRooms();
+    }
     
-    this.roomService.searchRooms(moment(this.checkin_date).format('yyyy-MM-DD'), 3).subscribe(
-      {
-        next: (response: Room[]) => {
-          this.rooms = response;
-          this.loading = false;
-        },
-        error: (error: HttpErrorResponse) => {
-          console.log(error);
-        }
-      }
-    );
   }
   public deleteAdult(index: number) {
     this.adultList.splice(index, 1);
