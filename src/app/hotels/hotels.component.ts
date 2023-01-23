@@ -67,7 +67,7 @@ export class HotelsComponent implements OnInit {
   }
 
   public searchHotel() {
-    if (this.hotel_name == undefined) {
+    if (this.hotel_name == undefined || this.hotel_name == '') {
       this.getHotels();
     }
     else {
