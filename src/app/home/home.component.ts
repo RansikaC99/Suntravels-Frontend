@@ -3,6 +3,17 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Room } from '../Interface/room';
 import { RoomService } from '../services/room.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment';
+
+class RoomDetails {
+  adults: number;
+  rooms: number;
+
+  constructor(adults: number, rooms: number) {
+      this.adults = adults;
+      this.rooms = rooms;
+  }
+}
 
 @Component({
   selector: 'app-home',
@@ -12,8 +23,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   faSearch = faSearch;
   public rooms: Room[];
-  public adultList: number[] = [];
-  public noAdults: number;
+  public adultList: RoomDetails[] = [];
+  public noAdults: number=1;
+  public noNights: number=1;
+  public noRooms: number=1;
+  public checkin_date: string;
   public loading: boolean = false;
 
   constructor(private roomService: RoomService) { }
@@ -38,7 +52,8 @@ export class HomeComponent implements OnInit {
   }
   public addRoomDetails() {
     if (this.noAdults != undefined) {
-      this.adultList.push(this.noAdults);
+      let roomData= new RoomDetails(this.noAdults, this.noRooms);
+      this.adultList.push(roomData);
       console.log(this.adultList);
     }
     else {
@@ -49,7 +64,8 @@ export class HomeComponent implements OnInit {
 
   public searchRooms() {
     this.loading = true;
-    this.roomService.searchRooms(5, 8).subscribe(
+    
+    this.roomService.searchRooms(moment(this.checkin_date).format('yyyy-MM-DD'), 3).subscribe(
       {
         next: (response: Room[]) => {
           this.rooms = response;

@@ -61,6 +61,13 @@
             Phone number is <strong>invalid</strong>
           </mat-error>
         </mat-form-field>
+        <mat-form-field class="markup" appearance="fill" style="min-width: 300px;margin: auto;">
+          <mat-label>Enter Markup value</mat-label>
+          <input required matInput formControlName="markup" type="number" min="1" max="100">
+          <mat-error *ngIf="hotelForm.get('markup').hasError('required')">
+            Markup is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
         <button type="submit" mat-raised-button color="primary" class="saveroom-btn" (click)="saveHotel()">Save
           Hotel</button>
       </form>

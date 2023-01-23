@@ -24,7 +24,8 @@ export class HotelsComponent implements OnInit {
   hotelForm = this.fb.group({
     name: ['', Validators.required],
     location: ['', Validators.required],
-    contactNumber: ['', Validators.required]
+    contactNumber: ['', Validators.required],
+    markup: [0, Validators.required]
   });
 
   public getHotels(): void {
@@ -44,8 +45,8 @@ export class HotelsComponent implements OnInit {
   public saveHotel(): void {
     if (this.hotelForm.valid) {
       // perform save operation
-      let { name, location, contactNumber } = this.hotelForm.value;
-      let hotel = { id: null, name, location, contactNumber };
+      let { name, location, contactNumber, markup } = this.hotelForm.value;
+      let hotel = { id: null, name, location, contactNumber, markup};
 
       this.hotelService.addHotel(hotel).subscribe(
         (response: Hotel) => {

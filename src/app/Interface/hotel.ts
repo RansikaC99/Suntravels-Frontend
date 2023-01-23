@@ -3,5 +3,5 @@ export interface Hotel{
     name: string;
     location: string;
     contactNumber: string;
-
+    markup: number;
 }
